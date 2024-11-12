@@ -6,14 +6,15 @@ const ExpandedView = ({ employee, onBack }) => {
 
   return (
     <div className="expanded-view">
-      <button className="back-button" onClick={onBack}>Back to Tile View</button>
+      <button className="back-button" onClick={onBack}>
+        <i className="fas fa-arrow-left"></i> Back to View
+      </button>
       <div className="employee-details">
         <h2>{employee.name}</h2>
-        <p><strong>Position:</strong> {employee.position}</p>
-        <p><strong>Department:</strong> {employee.department}</p>
         <p><strong>Email:</strong> {employee.email}</p>
         <p><strong>Phone:</strong> {employee.phone}</p>
-        <p><strong>Location:</strong> {employee.location}</p>
+        <p><strong>City:</strong> {employee.address.city}</p>
+        <p><strong>Website:</strong> {employee.website}</p>
       </div>
     </div>
   );
