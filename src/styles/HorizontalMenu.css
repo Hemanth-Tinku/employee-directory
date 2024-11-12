@@ -1,0 +1,25 @@
+.horizontal-menu {
+  background-color: #007bff;
+  padding: 10px 20px;
+}
+
+.horizontal-menu .menu-list {
+  list-style-type: none;
+  display: flex;
+  justify-content: space-around;
+  margin: 0;
+  padding: 0;
+}
+
+.horizontal-menu .menu-list li {
+  color: white;
+  cursor: pointer;
+  padding: 10px 15px;
+  font-size: 16px;
+  transition: background-color 0.3s;
+  border-radius: 4px;
+}
+
+.horizontal-menu .menu-list li:hover {
+  background-color: #0056b3;
+}

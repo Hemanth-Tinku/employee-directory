@@ -44,3 +44,18 @@
   width: 90%;
   text-align: center;
 }
+
+.toggle-view-button {
+  margin: 10px;
+  padding: 8px 16px;
+  font-size: 14px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.toggle-view-button:hover {
+  background-color: #0056b3;
+}
