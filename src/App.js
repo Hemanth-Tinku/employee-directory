@@ -9,11 +9,10 @@ import './App.css';
 function App() {
   const [view, setView] = useState('tile');
   const [selectedEmployee, setSelectedEmployee] = useState(null);
-
   const [employees, setEmployees] = useState([]);
 
   useEffect(() => {
-    //public api
+    // Fetch employee data from API
     fetch('https://jsonplaceholder.typicode.com/users')
       .then((response) => response.json())
       .then((data) => setEmployees(data))
@@ -37,8 +36,10 @@ function App() {
   return (
     <div className="app">
       <header className="header">
-        <HamburgerMenu />
-        <HorizontalMenu />
+        <div>
+          <HamburgerMenu />
+          <HorizontalMenu />
+        </div>
         <button className="toggle-view-button" onClick={handleToggleView}>
           Switch to {view === 'grid' ? 'Tile' : 'Grid'} View
         </button>
