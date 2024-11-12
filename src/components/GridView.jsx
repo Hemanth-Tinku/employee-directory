@@ -1,16 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import '../styles/GridView.css';
 
-const GridView = () => {
-  const [employees, setEmployees] = useState([]);
-
-  useEffect(() => {
-    //public api
-    fetch('https://jsonplaceholder.typicode.com/users')
-      .then((response) => response.json())
-      .then((data) => setEmployees(data))
-      .catch((error) => console.error('Error fetching employee data:', error));
-  }, []);
+const GridView = ({ employees }) => {
 
   return (
     <div className="grid-container">

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import HamburgerMenu from './components/HamburgerMenu';
 import HorizontalMenu from './components/HorizontalMenu';
 import GridView from './components/GridView';
@@ -7,8 +7,18 @@ import ExpandedView from './components/ExpandedView';
 import './App.css';
 
 function App() {
-  const [view, setView] = useState('grid'); 
+  const [view, setView] = useState('tile');
   const [selectedEmployee, setSelectedEmployee] = useState(null);
+
+  const [employees, setEmployees] = useState([]);
+
+  useEffect(() => {
+    //public api
+    fetch('https://jsonplaceholder.typicode.com/users')
+      .then((response) => response.json())
+      .then((data) => setEmployees(data))
+      .catch((error) => console.error('Error fetching employee data:', error));
+  }, []);
 
   const handleToggleView = () => {
     setView(view === 'grid' ? 'tile' : 'grid');
@@ -35,8 +45,8 @@ function App() {
       </header>
 
       <main className="main-content">
-        {view === 'grid' && <GridView onSelect={handleSelectEmployee} />}
-        {view === 'tile' && <TileView onSelect={handleSelectEmployee} />}
+        {view === 'grid' && <GridView employees={employees} onSelect={handleSelectEmployee} />}
+        {view === 'tile' && <TileView employees={employees} onSelect={handleSelectEmployee} />}
         {view === 'expanded' && (
           <ExpandedView employee={selectedEmployee} onBack={handleBackToTile} />
         )}
